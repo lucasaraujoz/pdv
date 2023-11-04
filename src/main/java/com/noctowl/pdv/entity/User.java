@@ -9,7 +9,7 @@ import java.util.List;
 @NoArgsConstructor @AllArgsConstructor
 @Data
 @Entity
-@Table(name="user_db")
+@Table(name="users")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,7 +18,7 @@ public class User {
     private String name;
     private boolean isEnabled;
 
-    @OneToMany(mappedBy = "user")
-    private List<Sale> sales;
-
+    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
+    private List<Sale> sales ;
+//      private List<String> teste;
 }
